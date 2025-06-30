@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-crud-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-crud
+  template:
+    metadata:
+      labels:
+        app: user-crud
+    spec:
+      containers:
+      - name: user-crud
+        image: _CRUD_DOCKER_IMAGE_ # Replace with your Docker image
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
