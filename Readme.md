@@ -1,1 +1,1 @@
-# Microservice Deployment using EKS and monitoring through ELK stack
+# App Deployment using EKS and monitoring through ELK stack
