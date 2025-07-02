@@ -15,3 +15,17 @@ variable "aws_region" {
   type        = string
   default     = "us-east-1"
 }
+
+variable "docker_image" {
+  description = "Docker image for the application"
+  type        = string
+  default     = "DEFAULT_DOCKER_IMAGE" 
+  
+}
+
+variable "app_name" {
+  description = "Name of the application"
+  type        = string
+  default     = "user-crud-service"
+  
+}
